@@ -52,12 +52,27 @@ class HistoriesController < ApplicationController
     end
   end
 
+  # GET /history/1/move_to
+  def move_to
+    @history = History.find params[:history_id]
+    respond_to do |format|
+      if @history.update_attributes(state: params[:phase])
+        format.html { redirect_to :back, notice: 'History was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @history.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
   # DELETE /histories/1
   # DELETE /histories/1.json
   def destroy
     @history.destroy
     respond_to do |format|
-      format.html { redirect_to histories_url }
+      format.html { redirect_to project_histories_url(@project) }
       format.json { head :no_content }
     end
   end

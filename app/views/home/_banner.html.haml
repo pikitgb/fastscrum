@@ -1,0 +1,21 @@
+#banner.page-header
+  .row
+    .col-lg-6
+      %h1 ScrumBoard
+      - if @projects.empty?
+        %p.lead I can't found projects
+      - else
+        %p.lead
+          = @projects.count
+          projects for work
+      = link_to "Crear un nuevo proyecto", new_project_path, class: "btn btn-lg btn-danger"
+    .col-lg-6{:style => "padding: 15px 15px 0 15px;"}
+      .well
+        %span{:style => "float: left; margin-right: 15px;"}
+          %img{:height => "135", :src => "twitter_big.png", :style => "border: 1px solid #ccc; border-radius: 4px;", :width => "175"}/
+        %h4{:style => "margin-bottom: 0.4em;"}
+          Last project:
+          = Project.last.name
+        .clearfix
+          %p= Project.last.mision
+          %p= Project.last.vision

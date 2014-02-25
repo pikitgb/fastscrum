@@ -7,7 +7,7 @@ gem 'rails', '4.0.3'
 # Local project gems
 gem 'bootstrap-sass'
 gem 'haml'
-#gem 'haml-edge'
+gem 'pry'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

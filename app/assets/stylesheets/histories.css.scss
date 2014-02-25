@@ -1,3 +1,17 @@
 // Place all the styles related to the histories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// CSS for History cards
+
+h3.panel-title .badge.badge-pending {
+  background: rgb(95, 5, 5);
+}
+
+h3.panel-title .badge.badge-current {
+  background: #173E69;
+}
+
+h3.panel-title .badge.badge-finished {
+  background: #2B680E;
+}

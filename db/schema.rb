@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225090016) do
+ActiveRecord::Schema.define(version: 20140225100036) do
 
   create_table "histories", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140225090016) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.string   "state",               default: "pending"
   end
 
   create_table "projects", force: true do |t|

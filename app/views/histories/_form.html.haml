@@ -29,6 +29,8 @@
             = f.text_area :comments, class: "form-control"
         .form-group
           .col-lg-10.col-lg-offset-2
-            = f.submit "Save changes", class: 'btn btn-default'
+            = f.submit "Save changes", class: 'btn btn-danger'
             or
-            = link_to 'Back', project_path(@project)
+            = link_to 'Back', project_path(@project), class: 'btn btn-primary'
+  .col-lg-6
+    = image_tag "card.png", style: "margin-top: -50px;"

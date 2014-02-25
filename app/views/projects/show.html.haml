@@ -1,19 +1,96 @@
-.page-header
-  %h2= @project.name
+%p
+.alert.alert-dismissable
+  %button{type: "button", class: "close", "data-dismiss" => "alert" } ×
+  .page-header
+    %h2= @project.name
 
-%p#notice= notice
-%p
-  %strong Name:
-  = @project.name
-%p
-  %strong Mision:
-  = @project.mision
-%p
-  %strong Vision:
-  = @project.vision
-%p
-  %strong Description:
-  = @project.description
-= link_to 'Edit', edit_project_path(@project), class: 'btn btn-warning'
-|
-\#{link_to 'Back', projects_path, class: 'btn btn-primary' }
+  %p#notice= notice
+  %p
+    %strong Name:
+    = @project.name
+  %p
+    %strong Mision:
+    = @project.mision
+  %p
+    %strong Vision:
+    = @project.vision
+  %p
+    %strong Description:
+    = @project.description
+  = link_to 'Edit', edit_project_path(@project), class: 'btn btn-warning'
+  |
+  \#{link_to 'Back', projects_path, class: 'btn btn-primary' }
+  |
+  = link_to "Add new history", new_project_history_path(@project), class: 'btn btn-danger'
+  |
+  = link_to "See all the histories", project_histories_path(@project), class: 'btn btn-info'
+
+
+.page-header
+  %b
+    Scrum Table
+
+.row
+  .col-lg-4
+    %center
+      %p
+        %b Pending
+    - @project.histories_pending.each do |history|
+      .panel.panel-danger
+        .panel-heading
+          %h3.panel-title
+            .badge.badge-pending
+              = history.puntuation
+            Nombre:
+            = history.name
+        .panel-body
+          %p
+            %b Finished definition:
+            = history.finished_definition
+          %p
+            %b Comments:
+            = history.comments
+          %hr
+          = link_to "current >>", project_history_move_to_path(@project, history) + "?phase=current", class: "btn btn-xs btn-default"
+  .col-lg-4
+    %center
+      %p
+        %b Current
+    - @project.histories_current.each do |history|
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title
+            Nombre:
+            = history.name
+            |
+            .badge.badge-current
+              = history.puntuation
+        .panel-body
+          %p
+            %b Finished definition:
+            = history.finished_definition
+          %p
+            %b Comments:
+            = history.comments
+          %hr
+          = link_to "finished >>", project_history_move_to_path(@project, history) + "?phase=finished", class: "btn btn-xs btn-default"
+  .col-lg-4
+    %center
+      %p
+        %b Finished
+    - @project.histories_finished.each do |history|
+      .panel.panel-success
+        .panel-heading
+          %h3.panel-title
+            Nombre:
+            = history.name
+            |
+            .badge.badge-finished
+              = history.puntuation
+        .panel-body
+          %p
+            %b Finished definition:
+            = history.finished_definition
+          %hr
+          = link_to "hide >>", project_history_move_to_path(@project, history) + "?phase=hide", class: "btn btn-xs btn-default"
+

@@ -1,7 +1,9 @@
 Fastscrum::Application.routes.draw do
 
   resources :projects do
-    resources :histories
+    resources :histories do
+      match "/move_to" => "histories#move_to", via: [:get]
+    end
   end
 
   get "home/index"
