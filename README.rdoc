@@ -1,0 +1,59 @@
+== README
+
+== Arquitecture
+
+Clases and Objects:
+
+  { Project [ name, created_at, finished_at, mision, vision, description, has_many: histories ] }
+  { History [ name, puntuation, finished_definition, comments, created_at, belongs_to: project, state: { "pending", "in course", "finished" } ] }
+  { Task [ name, description, puntuation, comments, belongs_to: history ] }
+
+== Histories and task for ScrumDashboard
+
+  * Manage projects:
+    - Create new project
+    - Modify project data
+    - Delete project, {with: Histories }
+    - List all projects
+    - Find project
+    - Show related histories
+
+  * Manage history:
+    - Create new history
+    - List all Histories
+    - Modify data from history
+    - Search and edit
+    - Destroy { with: Tasks }
+    - List related tasks
+
+  * Manage tasks
+    - Create, Edit, List all, Find, Destroy
+
+== Technical dependencies
+
+* Ruby version
+
+Ruby 2.1.0-p0
+
+* System dependencies
+
+
+* Configuration
+
+* Database creation
+
+Usign SQlite3
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
