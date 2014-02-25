@@ -1,5 +1,8 @@
 Fastscrum::Application.routes.draw do
-  resources :projects
+
+  resources :projects do
+    resources :histories
+  end
 
   get "home/index"
 

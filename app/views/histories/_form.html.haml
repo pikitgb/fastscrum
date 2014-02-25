@@ -1,0 +1,34 @@
+= form_for(@history, url: project_histories_path, html: {class: "form-horizontal"} ) do |f|
+  .col-lg-6
+    .well
+      - if @history.errors.any?
+        .alert.alert-danger
+          %h2
+            = pluralize(@history.errors.count, "error")
+            prohibited this history from being saved:
+          %ul
+            - @history.errors.full_messages.each do |msg|
+              %li= msg
+      %fieldset
+        %legend Create new history for this project
+        .form-group
+          = f.label :name, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :name, class: "form-control"
+        .form-group
+          = f.label :puntuation, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.number_field :puntuation, class: "form-control"
+        .form-group
+          = f.label :finished_definition, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_area :finished_definition, class: "form-control"
+        .form-group
+          = f.label :comments, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_area :comments, class: "form-control"
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit "Save changes", class: 'btn btn-default'
+            or
+            = link_to 'Back', project_path(@project)

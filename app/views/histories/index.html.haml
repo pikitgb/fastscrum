@@ -1,0 +1,25 @@
+.page-header
+  %h2 Listing histories
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Puntuation
+      %th Finished definition
+      %th Comments
+      %th
+      %th
+      %th
+  %tbody
+    - @histories.each do |history|
+      %tr
+        %td= history.name
+        %td= history.puntuation
+        %td= history.finished_definition
+        %td= history.comments
+        %td= link_to 'Show', project_history_path(@project, history), class: 'btn btn-info'
+        %td= link_to 'Edit', edit_project_history_path(@project, history), class: 'btn btn-warning'
+        %td= link_to 'Destroy', project_history_path(@project, history), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+%br/
+= link_to 'New History', new_project_history_path(@project), class: 'btn btn-lg btn-primary'

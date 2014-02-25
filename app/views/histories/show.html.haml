@@ -1,0 +1,22 @@
+.page-header
+  %h2= @history.name
+
+- if notice
+  .alert.alert-info
+    %p#notice= notice
+
+%p
+  %strong Name:
+  = @history.name
+%p
+  %strong Puntuation:
+  = @history.puntuation
+%p
+  %strong Finished definition:
+  = @history.finished_definition
+%p
+  %strong Comments:
+  = @history.comments
+= link_to 'Edit', edit_project_history_path(@project, @history), class: 'btn btn-warning'
+|
+\#{link_to 'Back', project_histories_path(@project), class: 'btn btn-default' }
