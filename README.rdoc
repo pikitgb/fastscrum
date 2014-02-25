@@ -12,6 +12,7 @@ Clases and Objects:
 
   * Manage projects:
     - Create new project
+      * Fix the fields [ picture, reference_document, specification_document, comments ]
     - Modify project data
     - Delete project, {with: Histories }
     - List all projects

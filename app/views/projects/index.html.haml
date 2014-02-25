@@ -1,0 +1,36 @@
+.page-header
+  %h2 Listing projects
+
+- if @projects.empty?
+  .alert.alert-info
+    Project list it's empty
+
+.row
+  .col-lg-8
+    = link_to 'New Project', new_project_path, class: "btn btn-primary"
+  .col-lg-4
+    %input{type: "search", class: "form-control focusedInput", placeholder: "Search on projects: " }
+%br
+%br
+
+- if !@projects.empty?
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Mision
+        %th Vision
+        %th Description
+        %th
+        %th
+        %th
+    %tbody
+      - @projects.each do |project|
+        %tr
+          %td= project.name
+          %td= project.mision
+          %td= project.vision
+          %td= project.description
+          %td= link_to 'Show', project, class: 'btn btn-info'
+          %td= link_to 'Edit', edit_project_path(project), class: 'btn btn-warning'
+          %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

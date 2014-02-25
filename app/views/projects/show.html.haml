@@ -1,0 +1,19 @@
+.page-header
+  %h2= @project.name
+
+%p#notice= notice
+%p
+  %strong Name:
+  = @project.name
+%p
+  %strong Mision:
+  = @project.mision
+%p
+  %strong Vision:
+  = @project.vision
+%p
+  %strong Description:
+  = @project.description
+= link_to 'Edit', edit_project_path(@project), class: 'btn btn-warning'
+|
+\#{link_to 'Back', projects_path, class: 'btn btn-primary' }
