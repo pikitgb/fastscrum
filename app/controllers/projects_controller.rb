@@ -12,6 +12,13 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  # GET /projects/1/current
+  # List the history with state = current on this project
+  def histories_current
+    @project = Project.find(params[:project_id])
+    @histories = @project.histories_current
+  end
+
   # GET /projects/new
   def new
     @project = Project.new
@@ -69,6 +76,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :mision, :vision, :description)
+      params.require(:project).permit(:name, :mision, :vision, :description, :reference_document, :comments, :specification_document, :avatar)
     end
 end

@@ -1,22 +1,50 @@
 .page-header
   %h2= @history.name
+  %p
+    %strong Puntuation:
+    = @history.puntuation
+  %p
+    %strong Finished definition:
+    = @history.finished_definition
+  %p
+    %strong Comments:
+    = @history.comments
+  %br
+  = link_to 'Edit', edit_project_history_path(@project, @history), class: 'btn btn-warning'
+  |
+  \#{link_to 'Back', project_path(@project), class: 'btn btn-default' }
+  |
+  = link_to "Add new task", new_project_history_task_path(@project, @history), class: 'btn btn-danger'
 
 - if notice
   .alert.alert-info
     %p#notice= notice
 
-%p
-  %strong Name:
-  = @history.name
-%p
-  %strong Puntuation:
-  = @history.puntuation
-%p
-  %strong Finished definition:
-  = @history.finished_definition
-%p
-  %strong Comments:
-  = @history.comments
-= link_to 'Edit', edit_project_history_path(@project, @history), class: 'btn btn-warning'
-|
-\#{link_to 'Back', project_histories_path(@project), class: 'btn btn-default' }
+.page-header
+  %h4 Related Tasks:
+  .row
+    .col-lg-8
+      %b
+        = @tasks.count
+        related tasks
+    .col-lg-4
+      %input{type: "search", class: "form-control", placeholder: "Find on tasks" }
+
+.row
+  .col-lg-6
+    %center
+      %p
+        %b Tasks
+    - @tasks.each do |t|
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title
+            Name:
+            = t.name
+        .panel-body
+          %p
+            %b Description
+            = t.description
+          %p
+            %b Comments:
+            = t.comments

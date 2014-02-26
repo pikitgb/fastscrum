@@ -8,14 +8,24 @@
         %p.lead
           = @projects.count
           projects for work
-      = link_to "Crear un nuevo proyecto", new_project_path, class: "btn btn-lg btn-danger"
-    .col-lg-6{:style => "padding: 15px 15px 0 15px;"}
-      .well
-        %span{:style => "float: left; margin-right: 15px;"}
-          %img{:height => "135", :src => "twitter_big.png", :style => "border: 1px solid #ccc; border-radius: 4px;", :width => "175"}/
-        %h4{:style => "margin-bottom: 0.4em;"}
-          Last project:
-          = Project.last.name
-        .clearfix
-          %p= Project.last.mision
-          %p= Project.last.vision
+      = link_to "Create new project", new_project_path, class: "btn btn-lg btn-danger"
+    - if @last_project
+      .col-lg-6{:style => "padding: 15px 15px 0 15px;"}
+        .well
+          %span{:style => "float: left; margin-right: 15px;"}
+            = image_tag @last_project.avatar.url(:thumb), :height => "135", :style => "border: 1px solid #3b3c3d; border-radius: 4px;", :width => "175"
+          %h4{:style => "margin-bottom: 0.4em;"}
+            Last project:
+            = @last_project.name
+          .clearfix
+            %p= @last_project.mision
+            %p= @last_project.vision
+    - else
+      .col-lg-6{:style => "padding: 15px 15px 0 15px;"}
+        .well
+          %span{:style => "float: left; margin-right: 15px;"}
+            = image_tag "card.png", :height => "235", :style => "border: 1px solid #3b3c3d; border-radius: 4px;", :width => "275"
+          %h4{:style => "margin-bottom: 0.4em;"}
+            Pagacell Project Manager
+          .clearfix
+            %p Gestion de proyectos en tiempo real

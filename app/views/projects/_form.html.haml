@@ -1,4 +1,4 @@
-= form_for(@project, html: {class: "form-horizontal" }) do |f|
+= form_for(@project, html: {class: "form-horizontal", multipart: true}) do |f|
   .col-lg-6
     .well
       - if @project.errors.any?
@@ -27,12 +27,6 @@
           = f.label :description, class: "control-label col-lg-2"
           .col-lg-10
             = f.text_area :description, class: "form-control", rows: "3"
-        .form-group
-          .col-lg-10.col-lg-offset-2
-            = f.submit "Save changes", class: "btn btn-primary"
-            or go
-            = link_to 'Back', projects_path, class: 'btn btn-default'
-
   .col-lg-6
     .well
       %fieldset
@@ -40,19 +34,19 @@
         .form-group
           = f.label :name, "Picture", class: "col-lg-2 control-label"
           .col-lg-10
-            = f.file_field :name, class: "form-control"
+            = f.file_field :avatar, class: "form-control"
         .form-group
           = f.label :mision, "Reference Document", class: "col-lg-2 control-label"
           .col-lg-10
-            = f.file_field :mision, class: "form-control", rows: "3"
+            = f.file_field :reference_document, class: "form-control", rows: "3"
         .form-group
           = f.label :vision, "Specification document", class: "control-label col-lg-2"
           .col-lg-10
-            = f.file_field :vision, class: "form-control", rows: "2"
+            = f.file_field :specification_document, class: "form-control", rows: "2"
         .form-group
           = f.label :description, "Comments", class: "control-label col-lg-2"
           .col-lg-10
-            = f.text_area :description, class: "form-control", rows: "3"
+            = f.text_area :comments, class: "form-control", rows: "3"
         .form-group
           .col-lg-10.col-lg-offset-2
             = f.submit "Create project", class: "btn btn-primary"

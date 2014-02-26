@@ -1,8 +1,10 @@
 Fastscrum::Application.routes.draw do
 
   resources :projects do
+    match "/histories_current" => "projects#histories_current", via: [:get]
     resources :histories do
       match "/move_to" => "histories#move_to", via: [:get]
+      resources :tasks
     end
   end
 

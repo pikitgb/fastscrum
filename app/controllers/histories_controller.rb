@@ -11,6 +11,7 @@ class HistoriesController < ApplicationController
   # GET /histories/1
   # GET /histories/1.json
   def show
+    @tasks = @history.tasks
   end
 
   # GET /histories/new
@@ -29,7 +30,7 @@ class HistoriesController < ApplicationController
 
     respond_to do |format|
       if @history.save
-        format.html { redirect_to project_history_path(@project, @history), notice: 'History was successfully created.' }
+        format.html { redirect_to project_path(@project), notice: 'History was successfully created.' }
         format.json { render action: 'show', status: :created, location: @history }
       else
         format.html { render action: 'new' }

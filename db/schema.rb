@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225100036) do
+ActiveRecord::Schema.define(version: 20140225223954) do
 
   create_table "histories", force: true do |t|
     t.string   "name"
@@ -29,6 +29,28 @@ ActiveRecord::Schema.define(version: 20140225100036) do
     t.string   "mision"
     t.string   "vision"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "reference_document_file_name"
+    t.string   "reference_document_content_type"
+    t.integer  "reference_document_file_size"
+    t.datetime "reference_document_updated_at"
+    t.string   "specification_document_file_name"
+    t.string   "specification_document_content_type"
+    t.integer  "specification_document_file_size"
+    t.datetime "specification_document_updated_at"
+    t.text     "comments"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "comments"
+    t.integer  "history_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,7 +6,7 @@ Clases and Objects:
 
   { Project [ name, created_at, finished_at, mision, vision, description, has_many: histories ] }
   { History [ name, puntuation, finished_definition, comments, created_at, belongs_to: project, state: { "pending", "in course", "finished" } ] }
-  { Task [ name, description, puntuation, comments, belongs_to: history ] }
+  { Task [ name, description, comments, belongs_to: history ] }
 
 == Histories and task for ScrumDashboard
 

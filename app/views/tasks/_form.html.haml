@@ -1,0 +1,30 @@
+= form_for(@task, url: project_history_tasks_path(@project, @history), html: {class: "form-horizontal"} ) do |f|
+  .col-lg-6
+    .well
+      - if @task.errors.any?
+        .alert.alert-danger
+          %h2
+            = pluralize(@task.errors.count, "error")
+            prohibited this task from being saved:
+          %ul
+            - @task.errors.full_messages.each do |msg|
+              %li= msg
+      %fieldset
+        %legend Create new history for this project
+        .form-group
+          = f.label :name, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :name, class: "form-control"
+        .form-group
+          = f.label :description, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_area :description, class: "form-control"
+        .form-group
+          = f.label :comments, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_area :comments, class: "form-control"
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit "Save changes", class: "btn btn-danger"
+            or
+            = link_to 'Back', project_history_tasks_path, class: 'btn btn-default'

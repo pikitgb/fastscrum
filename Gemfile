@@ -8,6 +8,8 @@ gem 'rails', '4.0.3'
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'pry'
+gem 'paperclip'
+gem 'better_errors'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

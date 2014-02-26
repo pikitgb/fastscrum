@@ -29,7 +29,7 @@
       |
       = link_to "Add new history", new_project_history_path(@project), class: 'btn btn-danger'
       |
-      = link_to "See all the histories", project_histories_path(@project), class: 'btn btn-info'
+      = link_to "See the table", project_path(@project), class: 'btn btn-info'
     .col-lg-2
       %p
         = link_to "See: specification document", @project.specification_document.url
@@ -47,36 +47,9 @@
 
 .page-header
   %b
-    Scrum Table
-
+    Histories in current
 .row
-  .col-lg-4
-    %center
-      %p
-        %b Pending
-    - @project.histories_pending.each do |history|
-      .panel.panel-danger
-        .panel-heading
-          %h3.panel-title
-            .badge.badge-pending
-              = history.puntuation
-            Name:
-            = history.name
-        .panel-body
-          %p
-            %b Finished definition:
-            = history.finished_definition
-          %p
-            %b Comments:
-            = history.comments
-          %hr
-          = link_to "move to current", project_history_move_to_path(@project, history) + "?phase=current", class: "btn btn-xs btn-default"
-          = link_to "see details (#{history.tasks.count})", project_history_path(@project, history), class: "btn btn-xs btn-info"
-  .col-lg-4
-    %center
-      %p
-        %b
-          = link_to "Current", project_histories_current_path(@project)
+  .col-lg-8
     - @project.histories_current.each do |history|
       .panel.panel-info
         .panel-heading
@@ -95,23 +68,5 @@
           %hr
           = link_to "undo state", project_history_move_to_path(@project, history) + "?phase=pending", class: "btn btn-xs btn-warning"
           = link_to "move to finished", project_history_move_to_path(@project, history) + "?phase=finished", class: "btn btn-xs btn-default"
-          = link_to "see details (#{history.tasks.count})", project_history_path(@project, history), class: "btn btn-xs btn-info"
-  .col-lg-4
-    %center
-      %p
-        %b Finished
-    - @project.histories_finished.each do |history|
-      .panel.panel-success
-        .panel-heading
-          %h3.panel-title
-            Name:
-            = history.name
-            .badge.badge-finished
-              = history.puntuation
-        .panel-body
-          %p
-            %b Finished definition:
-            = history.finished_definition
-          %hr
-          = link_to "hide this card", project_history_move_to_path(@project, history) + "?phase=hide", class: "btn btn-xs btn-default"
+          = link_to "see details", project_history_path(@project, history), class: "btn btn-xs btn-info"
 

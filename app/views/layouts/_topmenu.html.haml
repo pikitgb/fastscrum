@@ -1,0 +1,28 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %a.navbar-brand{:href => root_path} ScrumBoard
+      %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Projects
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "themes"}
+            %li
+              %a{:href => new_project_path} Crear un nuevo proyecto
+            %li.divider
+            - @projects.each_with_index do |project, index|
+              - if index != 0
+                %li.divider
+              %li
+                %a{:href => project_path(project)}= project.name
+        %li
+          = link_to "Credits", ""
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "http://builtwithbootstrap.com/", :target => "_blank"} pikitgb@gmail.com
