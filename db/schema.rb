@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225223954) do
+ActiveRecord::Schema.define(version: 20140226154238) do
 
   create_table "histories", force: true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140225223954) do
     t.integer  "specification_document_file_size"
     t.datetime "specification_document_updated_at"
     t.text     "comments"
+    t.text     "tecnical_document"
   end
 
   create_table "tasks", force: true do |t|

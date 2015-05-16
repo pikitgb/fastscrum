@@ -25,4 +25,8 @@
           = link_to "Credits", ""
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{:href => "http://builtwithbootstrap.com/", :target => "_blank"} pikitgb@gmail.com
+          %a{style: "font-size: 25px;", :href => "http://builtwithbootstrap.com/", :target => "_blank"}
+            {
+            = Fibonacci.fibonacci(13).join(', ')
+            , ... }
+

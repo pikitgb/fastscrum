@@ -27,4 +27,4 @@
           .col-lg-10.col-lg-offset-2
             = f.submit "Save changes", class: "btn btn-danger"
             or
-            = link_to 'Back', project_history_tasks_path, class: 'btn btn-default'
+            = link_to 'Back', project_history_path(@project, @history), class: 'btn btn-default'

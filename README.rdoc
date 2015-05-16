@@ -4,31 +4,9 @@
 
 Clases and Objects:
 
-  { Project [ name, created_at, finished_at, mision, vision, description, has_many: histories ] }
+  { Project [ reference_document, specification_document, comments, avatar, name, created_at, finished_at, mision, vision, description, has_many: histories ] }
   { History [ name, puntuation, finished_definition, comments, created_at, belongs_to: project, state: { "pending", "in course", "finished" } ] }
   { Task [ name, description, comments, belongs_to: history ] }
-
-== Histories and task for ScrumDashboard
-
-  * Manage projects:
-    - Create new project
-      * Fix the fields [ picture, reference_document, specification_document, comments ]
-    - Modify project data
-    - Delete project, {with: Histories }
-    - List all projects
-    - Find project
-    - Show related histories
-
-  * Manage history:
-    - Create new history
-    - List all Histories
-    - Modify data from history
-    - Search and edit
-    - Destroy { with: Tasks }
-    - List related tasks
-
-  * Manage tasks
-    - Create, Edit, List all, Find, Destroy
 
 == Technical dependencies
 

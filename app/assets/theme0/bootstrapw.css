@@ -294,7 +294,7 @@ a {
 a:hover,
 a:focus {
   color: #18bc9c;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 a:focus {
   outline: thin dotted;
@@ -2307,7 +2307,7 @@ fieldset[disabled] .btn-link {
 .btn-link:hover,
 .btn-link:focus {
   color: #18bc9c;
-  text-decoration: underline;
+  /* text-decoration: underline;*/
   background-color: transparent;
 }
 .btn-link[disabled]:hover,
@@ -5730,7 +5730,7 @@ button.close {
 }
 table a,
 .table a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 table .success,
 .table .success,
@@ -5863,7 +5863,7 @@ input[type="color"]:focus,
 .alert a,
 .alert .alert-link {
   color: #fff;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 .progress {
   height: 10px;

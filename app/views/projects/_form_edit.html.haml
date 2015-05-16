@@ -1,0 +1,52 @@
+= form_for(@project, html: {class: "form-horizontal", multipart: true}) do |f|
+  .col-lg-12
+    .well
+      %fieldset
+        %legend Tech doc or description:
+        .form-group
+          = f.label :tecnical_document, class: "control-label col-lg-2"
+          .col-lg-10
+            = f.text_area :tecnical_document, class: "form-control", rows: "9", cols: "5"
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit "Save changes", class: "btn btn-danger"
+            or go
+            = link_to 'Back', projects_path, class: 'btn btn-default'
+
+  .col-lg-6
+    .well
+      - if @project.errors.any?
+        .alert.alert-danger
+          %h2
+            = pluralize(@project.errors.count, "error")
+            prohibited this project from being saved:
+          %ul
+            - @project.errors.full_messages.each do |msg|
+              %li= msg
+      %fieldset
+        %legend Create a new project for manage
+        .form-group
+          = f.label :name, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_field :name, class: "form-control"
+        .form-group
+          = f.label :mision, class: "col-lg-2 control-label"
+          .col-lg-10
+            = f.text_area :mision, class: "form-control", rows: "3"
+        .form-group
+          = f.label :vision, class: "control-label col-lg-2"
+          .col-lg-10
+            = f.text_area :vision, class: "form-control", rows: "2"
+        .form-group
+          = f.label :description, class: "control-label col-lg-2"
+          .col-lg-10
+            = f.text_area :description, class: "form-control", rows: "3"
+  .col-lg-6
+    .well
+      %fieldset
+        %legend More documentation
+        .form-group
+          = f.label :description, "Comments", class: "control-label col-lg-2"
+          .col-lg-10
+            = f.text_area :comments, class: "form-control", rows: "3"
+
